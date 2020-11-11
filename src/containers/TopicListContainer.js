@@ -5,27 +5,22 @@ import { gql } from 'apollo-boost';
 import { Query } from 'react-apollo';
 
 // Custom Components
-import Testing from '../components/Testing/Testing';
+import { queryTopic } from '../store/middleware/api';
+import TopicList from '../components/TopicList/TopicList';
 
-const QUERY = gql`
-  query {
-    allPlaylists {
-      title
-    }
-  }
-`;
+const QUERY = queryTopic;
 
-function TestingContainer() {
+function TopicListContainer() {
   return (
     <Query query={QUERY}>
       {({ loading, error, data }) => {
         if (loading) return <div>Loading...</div>;
         if (error) return <div>Error :(</div>;
 
-        return <Testing data={data} />;
+        return <TopicList data={data} />;
       }}
     </Query>
   );
 }
 
-export default TestingContainer;
+export default TopicListContainer;

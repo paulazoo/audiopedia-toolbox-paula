@@ -16,7 +16,7 @@ function ShowTopic({ selectedTopic }) {
       <Card.Title>{selectedTopic.title}</Card.Title>
       <Card.Body>
         <p>{selectedTopic.title}</p>
-        <p>{selectedTopic.id}</p>
+        <p>{selectedTopic.index}</p>
         <p>{`Published? ${published}`}</p>
       </Card.Body>
       <Card.Footer>

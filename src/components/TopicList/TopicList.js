@@ -59,12 +59,13 @@ const initial = [
 
 const TopicListMemo = React.memo(function TopicListMemo({ topics }) {
   return topics.map((topic, index) => (
-    <TopicItem topic={topic} index={index} key={`id${topic.id}`} />
+    // TODO: change back to id
+    <TopicItem topic={topic} index={index} key={`id${topic.index}`} />
   ));
 });
 
-function TopicList() {
-  const [topics, setTopics] = useState(initial);
+function TopicList({ data }) {
+  const [topics, setTopics] = useState(data.allTopics);
   const [showCreateTopic, setShowCreateTopic] = useState(false);
 
   function onDragEnd(result) {

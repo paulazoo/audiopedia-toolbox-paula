@@ -59,14 +59,16 @@ function PlaylistItem({
 
   return (
     <>
-      <Draggable draggableId={`id-${playlist.id}`} index={index}>
+      {/* TODO: change back to id */}
+      <Draggable draggableId={`id-${playlist.index}`} index={index}>
         {(provided) => (
           <div
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             className={
-              selectedPlaylist.id === playlist.id
+              // TODO: change back to id
+              selectedPlaylist.index === playlist.index
                 ? 'selected-listed-item'
                 : 'listed-item'
             }

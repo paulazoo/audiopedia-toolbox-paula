@@ -12,59 +12,19 @@ import reorder from '../Shared/reorder';
 import PlaylistItem from './PlaylistItem';
 import CreatePlaylist from '../Create/CreatePlaylist';
 
-const initial = [
-  {
-    id: 3,
-    language: 'English',
-    title: 'hi',
-    audio_url: 'https://congregate.live',
-    published: true,
-  },
-  {
-    id: 1,
-    language: 'English',
-    title: 'hello!',
-    audio_url: 'https://gradescope.com',
-    published: true,
-  },
-  {
-    id: 4,
-    language: 'English',
-    title: 'hi again',
-    audio_url: 'https://collegearch.org',
-    published: true,
-  },
-  {
-    id: 15,
-    language: 'English',
-    title: 'how r u?',
-    audio_url: 'https://congregate.live',
-    published: false,
-  },
-  {
-    id: 9,
-    language: 'English',
-    title: 'im doin okay, wbu?',
-    audio_url: 'https://congregate.live',
-    published: false,
-  },
-  {
-    id: 2,
-    language: 'English',
-    title: 'im hangin in there!',
-    audio_url: 'https://congregate.live',
-    published: true,
-  },
-];
-
 const PlaylistListMemo = React.memo(function PlaylistListMemo({ playlists }) {
   return playlists.map((playlist, index) => (
-    <PlaylistItem playlist={playlist} index={index} key={`id${playlist.id}`} />
+    // TODO: change back to id
+    <PlaylistItem
+      playlist={playlist}
+      index={index}
+      key={`id${playlist.index}`}
+    />
   ));
 });
 
-function PlaylistList() {
-  const [playlists, setPlaylists] = useState(initial);
+function PlaylistList({ data }) {
+  const [playlists, setPlaylists] = useState(data.allPlaylists);
   const [showCreatePlaylist, setShowCreatePlaylist] = useState(false);
 
   function onDragEnd(result) {

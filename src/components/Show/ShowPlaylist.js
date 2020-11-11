@@ -16,7 +16,7 @@ function ShowPlaylist({ selectedPlaylist }) {
       <Card.Title>{selectedPlaylist.title}</Card.Title>
       <Card.Body>
         <p>{selectedPlaylist.title}</p>
-        <p>{selectedPlaylist.id}</p>
+        <p>{selectedPlaylist.index}</p>
         <p>{`Published? ${published}`}</p>
       </Card.Body>
       <Card.Footer>

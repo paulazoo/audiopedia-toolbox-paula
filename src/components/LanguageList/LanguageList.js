@@ -12,37 +12,14 @@ import reorder from '../Shared/reorder';
 import AddLanguage from './AddLanguage';
 import LanguageItem from './LanguageItem';
 
-const initial = [
-  {
-    id: 9,
-    name: 'English',
-  },
-  {
-    id: 6,
-    name: 'Mandarin',
-  },
-  {
-    id: 53,
-    name: 'French',
-  },
-  {
-    id: 5,
-    name: 'Cantonese',
-  },
-  {
-    id: 8,
-    name: 'Spanish',
-  },
-];
-
 const LanguageListMemo = React.memo(function LanguageListMemo({ languages }) {
   return languages.map((language, index) => (
     <LanguageItem language={language} index={index} key={`id${language.id}`} />
   ));
 });
 
-function LanguageList() {
-  const [languages, setLanguages] = useState(initial);
+function LanguageList({ data }) {
+  const [languages, setLanguages] = useState(data);
   const [showAddLanguage, setShowAddLanguage] = useState(false);
 
   function onDragEnd(result) {

@@ -54,14 +54,16 @@ function TopicItem({ topic, index, setSelectedTopic, selectedTopic }) {
 
   return (
     <>
-      <Draggable draggableId={`id-${topic.id}`} index={index}>
+      {/* TODO: change back to id */}
+      <Draggable draggableId={`id-${topic.index}`} index={index}>
         {(provided) => (
           <div
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
             className={
-              selectedTopic.id === topic.id
+              // TODO: change back to id
+              selectedTopic.index === topic.index
                 ? 'selected-listed-item'
                 : 'listed-item'
             }
